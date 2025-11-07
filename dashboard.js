@@ -49,8 +49,8 @@ document.addEventListener('DOMContentLoaded', () => {
             'quiz': 'QUIZ-APP/index.html',
             'stopwatch': 'STOPWATCH/index.html',
             'quote': 'RANDOM-QUOTES/index.html',
-            'weather': 'SIMPLE-WEATHER CONDITION/index.html',
-			'currency': 'CURRENCY-CONVERTER/currency.html',
+            'weather': 'https://github.com/Servermonk-1/SIMPLE-WEATHER-API',
+			'currency': 'https://github.com/Servermonk-1/CRYPTO-TRACKER',
 			'tracker': 'CRYPTO-TRACKER/index.html'
         };
 

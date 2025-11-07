@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Stopwatch & Timer</title>
+	<link rel="stylesheet" href="stopwatch.css">
+</head>
+
+<body>
+	<header>
+		<h2>Stopwatch & Timer</h2>
+		<button class="back-btn" onclick="goBack()">
+			<i class="fas fa-arrow-left"></i> Dashboard
+		</button>
+	</header>
+
+
+	<div class="stopwatch-container">
+		<div id="display">00:00:00</div>
+
+		<div class="buttons">
+			<button id="start-btn">Start</button>
+			<button id="pause-btn">Pause</button>
+			<button id="reset-btn">Reset</button>
+		</div>
+
+		<div class="timer-inputs">
+			<input type="number" id="minutes" placeholder="Min" min="0">
+			<input type="number" id="seconds" placeholder="Sec" min="0">
+			<button id="set-timer-btn">Set Timer</button>
+		</div>
+	</div>
+	<script src="stopwatch.js"></script>
+</body>
+
+</html>

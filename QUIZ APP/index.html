@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quiz Master - Servermonk</title>
+	<link rel="stylesheet" href="quiz.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="quiz-container">
+		<!-- Header -->
+		<div class="quiz-header">
+			<h1><i class="fas fa-brain"></i> Quiz Master</h1>
+			<button class="back-btn" onclick="goBack()">
+				<i class="fas fa-arrow-left"></i> Dashboard
+			</button>
+		</div>
+
+		<!-- Setup Screen -->
+		<div id="setup-screen" class="screen active">
+			<div class="setup-card">
+				<h2>Quiz Setup</h2>
+
+				<div class="form-group">
+					<label for="category">Category:</label>
+					<select id="category">
+						<option value="">Any Category</option>
+						<option value="9">General Knowledge</option>
+						<option value="10">Books</option>
+						<option value="11">Film</option>
+						<option value="12">Music</option>
+						<option value="13">Musicals & Theatres</option>
+						<option value="14">Television</option>
+						<option value="15">Video Games</option>
+						<option value="16">Board Games</option>
+						<option value="17">Science & Nature</option>
+						<option value="18">Computers</option>
+						<option value="19">Mathematics</option>
+						<option value="20">Mythology</option>
+						<option value="21">Sports</option>
+						<option value="22">Geography</option>
+						<option value="23">History</option>
+						<option value="24">Politics</option>
+						<option value="25">Art</option>
+						<option value="26">Celebrities</option>
+						<option value="27">Animals</option>
+						<option value="28">Vehicles</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="difficulty">Difficulty:</label>
+					<select id="difficulty">
+						<option value="">Any Difficulty</option>
+						<option value="easy">Easy</option>
+						<option value="medium">Medium</option>
+						<option value="hard">Hard</option>
+					</select>
+				</div>
+
+				<div class="form-group">
+					<label for="amount">Number of Questions:</label>
+					<input type="number" id="amount" min="5" max="20" value="10">
+				</div>
+
+				<div class="form-group">
+					<label for="type">Question Type:</label>
+					<select id="type">
+						<option value="">Any Type</option>
+						<option value="multiple">Multiple Choice</option>
+						<option value="boolean">True/False</option>
+					</select>
+				</div>
+
+				<button id="start-quiz" class="btn primary-btn">
+					<i class="fas fa-play"></i> Start Quiz
+				</button>
+			</div>
+		</div>
+
+		<!-- Quiz Screen -->
+		<div id="quiz-screen" class="screen">
+			<div class="quiz-info">
+				<div class="progress-bar">
+					<div class="progress-fill" id="progress-fill"></div>
+				</div>
+				<div class="quiz-stats">
+					<span class="stat"><i class="fas fa-clock"></i> <span id="timer">60</span>s</span>
+					<span class="stat"><i class="fas fa-question-circle"></i> <span id="current-question">1</span>/<span
+							id="total-questions">10</span></span>
+					<span class="stat"><i class="fas fa-star"></i> <span id="score">0</span> Points</span>
+				</div>
+			</div>
+
+			<div class="question-container">
+				<h2 id="question-text">Loading question...</h2>
+				<div id="options-container" class="options-container">
+					<!-- Options will be dynamically added here -->
+				</div>
+			</div>
+
+			<div class="quiz-controls">
+				<button id="next-btn" class="btn secondary-btn" disabled>
+					<i class="fas fa-arrow-right"></i> Next Question
+				</button>
+				<button id="quit-btn" class="btn danger-btn">
+					<i class="fas fa-times"></i> Quit Quiz
+				</button>
+			</div>
+		</div>
+
+		<!-- Results Screen -->
+		<div id="results-screen" class="screen">
+			<div class="results-card">
+				<div class="results-header">
+					<i class="fas fa-trophy"></i>
+					<h2>Quiz Completed!</h2>
+				</div>
+
+				<div class="results-stats">
+					<div class="stat-item">
+						<div class="stat-value" id="final-score">0</div>
+						<div class="stat-label">Final Score</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-value" id="correct-answers">0</div>
+						<div class="stat-label">Correct Answers</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-value" id="total-questions-result">0</div>
+						<div class="stat-label">Total Questions</div>
+					</div>
+					<div class="stat-item">
+						<div class="stat-value" id="percentage">0%</div>
+						<div class="stat-label">Success Rate</div>
+					</div>
+				</div>
+
+				<div class="results-message" id="results-message">
+					Keep practicing!
+				</div>
+
+				<div class="results-actions">
+					<button id="play-again-btn" class="btn primary-btn">
+						<i class="fas fa-redo"></i> Play Again
+					</button>
+					<button id="new-quiz-btn" class="btn secondary-btn">
+						<i class="fas fa-cog"></i> New Quiz Setup
+					</button>
+				</div>
+			</div>
+		</div>
+
+		<!-- Loading Screen -->
+		<div id="loading-screen" class="screen">
+			<div class="loading-content">
+				<div class="spinner"></div>
+				<h3>Loading Questions...</h3>
+				<p>Getting the best questions for your quiz</p>
+			</div>
+		</div>
+
+		<!-- Error Screen -->
+		<div id="error-screen" class="screen">
+			<div class="error-content">
+				<i class="fas fa-exclamation-triangle"></i>
+				<h3>Oops! Something went wrong</h3>
+				<p id="error-message">Failed to load questions. Please try again.</p>
+				<button id="retry-btn" class="btn primary-btn">
+					<i class="fas fa-sync"></i> Try Again
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script src="quiz.js"></script>
+</body>
+
+</html>

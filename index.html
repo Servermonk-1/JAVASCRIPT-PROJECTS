@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Servermonk - Your multipurpose app with calculator, todo list, weather, and more">
+    <title>Servermonk Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <h2>WELCOME TO SERVERMONK JS LESSON</h2>
+        <div class="header-right">
+            <span id="user-email"></span>
+        </div>
+    </header>
+
+    <!-- Dashboard Section -->
+    <main id="dashboard" class="dashboard-grid">
+        <div class="card" data-tool="calculator">Calculator</div>
+        <div class="card" data-tool="todo">To-Do List</div>
+        <div class="card" data-tool="agecalc">Age Calculator</div>
+        <div class="card" data-tool="quiz">Quiz App</div>
+        <div class="card" data-tool="tracker">Crypto Tracker</div>
+        <div class="card" data-tool="quote">Random Quote</div>
+        <div class="card" data-tool="weather">Weather App</div>
+        <div class="card" data-tool="currency">Currency Converter</div>
+        <div class="card" data-tool="stopwatch">Stopwatch/Timer</div>
+    </main>
+
+    <!-- Tool Sections -->
+    <section class="tool-section" id="calculator-section">
+        <button class="back-btn">← Back</button>
+        <h1>Calculator</h1>
+        <div id="calculator-content"></div>
+    </section>
+
+    <section class="tool-section" id="todo-section">
+        <button class="back-btn">← Back</button>
+        <h1>To-Do List</h1>
+        <div id="todo-content"></div>
+    </section>
+
+    <section class="tool-section" id="agecalc-section">
+        <button class="back-btn">← Back</button>
+        <h1>Age Calculator</h1>
+        <div id="agecalc-content"></div>
+    </section>
+
+    <section class="tool-section" id="dictionary-section">
+        <button class="back-btn">← Back</button>
+        <h1>Dictionary</h1>
+        <div id="dictionary-content"></div>
+    </section>
+
+    <section class="tool-section" id="quiz-section">
+        <button class="back-btn">← Back</button>
+        <h1>Quiz App</h1>
+        <div id="quiz-content"></div>
+    </section>
+
+    <section class="tool-section" id="tracker-section">
+        <button class="back-btn">← Back</button>
+        <h1>Crypto Tracker</h1>
+        <div id="tracker-content"></div>
+    </section>
+
+    <section class="tool-section" id="quote-section">
+        <button class="back-btn">← Back</button>
+        <h1>Random Quote</h1>
+        <div id="quote-content"></div>
+    </section>
+
+    <section class="tool-section" id="weather-section">
+        <button class="back-btn">← Back</button>
+        <h1>Weather App</h1>
+        <div id="weather-content"></div>
+    </section>
+
+    <section class="tool-section" id="currency-section">
+        <button class="back-btn">← Back</button>
+        <h1>Currency Converter</h1>
+        <div id="currency-content"></div>
+    </section>
+
+    <section class="tool-section" id="stopwatch-section">
+        <button class="back-btn">← Back</button>
+        <h1>Stopwatch/Timer</h1>
+        <div id="stopwatch-content"></div>
+    </section>
+
+    <!-- Loading and Error States -->
+    <div id="loading-spinner" class="loading-spinner" style="display: none;">
+        Loading...
+    </div>
+
+    <div id="error-message" class="error-message" style="display: none;"></div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>

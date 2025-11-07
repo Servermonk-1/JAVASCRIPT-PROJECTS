@@ -1,0 +1,39 @@
+<<!DOCTYPE html>
+	<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Servermonk Age Calculator</title>
+		<link rel="stylesheet" href="agecalc.css">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="agecalc-wrapper">
+			<!-- Header -->
+			<header class="agecalc-header">
+				<h1>AGE CALCULATOR</h1>
+				<button class="back-btn" onclick="goBack()">
+					<i class="fas fa-arrow-left"></i> Back to Dashboard
+				</button>
+			</header>
+
+			<!-- Main Board -->
+			<div class="agecalc-board">
+				<div class="agecalc-container">
+					<div class="input-group">
+						<label for="dob">Enter Your Date of Birth:</label>
+						<input type="date" id="dob">
+					</div>
+					<button id="calculate-btn">Calculate Age</button>
+					<button id="reset-btn">Reset</button>
+					<div class="result" id="age-result">Your age will appear here...</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="agecalc.js"></script>
+	</body>
+
+	</html>

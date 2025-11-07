@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Currency Converter - Servermonk</title>
+	<link rel="stylesheet" href="currency.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+	<div class="converter-container">
+		<!-- Header -->
+		<div class="converter-header">
+			<h1><i class="fas fa-money-bill-wave"></i> Currency Converter</h1>
+			<button class="back-btn" onclick="goBack()">
+				<i class="fas fa-arrow-left"></i> Dashboard
+			</button>
+		</div>
+
+		<!-- Main Converter -->
+		<div class="converter-card">
+			<div class="converter-form">
+				<!-- Amount Input -->
+				<div class="input-group">
+					<label for="amount">Amount:</label>
+					<div class="amount-input">
+						<input type="number" id="amount" value="1" min="0" step="0.01">
+						<span class="currency-symbol" id="from-symbol">$</span>
+					</div>
+				</div>
+
+				<!-- From Currency -->
+				<div class="input-group">
+					<label for="from-currency">From:</label>
+					<div class="currency-select">
+						<select id="from-currency">
+							<option value="USD">USD - US Dollar</option>
+							<option value="EUR">EUR - Euro</option>
+							<option value="GBP">GBP - British Pound</option>
+							<option value="JPY">JPY - Japanese Yen</option>
+							<option value="CAD">CAD - Canadian Dollar</option>
+							<option value="AUD">AUD - Australian Dollar</option>
+							<option value="CHF">CHF - Swiss Franc</option>
+							<option value="CNY">CNY - Chinese Yuan</option>
+							<option value="INR">INR - Indian Rupee</option>
+							<option value="SGD">SGD - Singapore Dollar</option>
+						</select>
+						<div class="flag" id="from-flag">🇺🇸</div>
+					</div>
+				</div>
+
+				<!-- Swap Button -->
+				<div class="swap-container">
+					<button id="swap-btn" class="swap-btn">
+						<i class="fas fa-exchange-alt"></i>
+					</button>
+				</div>
+
+				<!-- To Currency -->
+				<div class="input-group">
+					<label for="to-currency">To:</label>
+					<div class="currency-select">
+						<select id="to-currency">
+							<option value="EUR">EUR - Euro</option>
+							<option value="USD">USD - US Dollar</option>
+							<option value="GBP">GBP - British Pound</option>
+							<option value="JPY">JPY - Japanese Yen</option>
+							<option value="CAD">CAD - Canadian Dollar</option>
+							<option value="AUD">AUD - Australian Dollar</option>
+							<option value="CHF">CHF - Swiss Franc</option>
+							<option value="CNY">CNY - Chinese Yuan</option>
+							<option value="INR">INR - Indian Rupee</option>
+							<option value="SGD">SGD - Singapore Dollar</option>
+						</select>
+						<div class="flag" id="to-flag">🇪🇺</div>
+					</div>
+				</div>
+
+				<!-- Convert Button -->
+				<button id="convert-btn" class="convert-btn">
+					<i class="fas fa-sync-alt"></i> Convert
+				</button>
+			</div>
+
+			<!-- Results Display -->
+			<div class="results-section">
+				<div class="conversion-result">
+					<div class="result-amount" id="result-amount">0.00</div>
+					<div class="result-currency" id="result-currency">EUR</div>
+				</div>
+
+				<div class="exchange-rate">
+					<span id="exchange-rate-text">1 USD = 0.00 EUR</span>
+				</div>
+
+				<div class="last-updated">
+					<i class="fas fa-clock"></i>
+					Last updated: <span id="last-updated">--</span>
+				</div>
+			</div>
+		</div>
+
+		<!-- Popular Currencies -->
+		<div class="popular-currencies">
+			<h3>Popular Conversions</h3>
+			<div class="popular-grid" id="popular-grid">
+				<!-- Popular conversions will be dynamically added -->
+			</div>
+		</div>
+
+		<!-- Currency Charts -->
+		<div class="charts-section">
+			<h3>Exchange Rate History</h3>
+			<div class="chart-container">
+				<canvas id="rate-chart"></canvas>
+			</div>
+			<div class="chart-controls">
+				<button class="chart-btn active" data-days="7">7 Days</button>
+				<button class="chart-btn" data-days="30">30 Days</button>
+				<button class="chart-btn" data-days="90">90 Days</button>
+			</div>
+		</div>
+
+		<!-- Loading State -->
+		<div id="loading" class="loading-state">
+			<div class="spinner"></div>
+			<p>Fetching exchange rates...</p>
+		</div>
+
+		<!-- Error State -->
+		<div id="error" class="error-state">
+			<i class="fas fa-exclamation-triangle"></i>
+			<h3>Unable to fetch rates</h3>
+			<p>Please check your connection and try again</p>
+			<button id="retry-btn" class="retry-btn">Retry</button>
+		</div>
+	</div>
+
+	<!-- Chart.js Library -->
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	<script src="currency.js"></script>
+</body>
+
+</html>

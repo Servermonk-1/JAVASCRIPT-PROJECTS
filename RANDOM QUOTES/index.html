@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Inspirational Quotes - Servermonk</title>
+	<link rel="stylesheet" href="quote.css">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap"
+		rel="stylesheet">
+</head>
+
+<body>
+	<div class="quotes-container">
+		<!-- Header -->
+		<div class="quotes-header">
+			<h1><i class="fas fa-quote-left"></i> Inspirational Quotes</h1>
+			<button class="back-btn" onclick="goBack()">
+				<i class="fas fa-arrow-left"></i> Dashboard
+			</button>
+		</div>
+
+		<!-- Main Content -->
+		<div class="main-content">
+			<!-- Quote Display -->
+			<div class="quote-card">
+				<div class="quote-content">
+					<i class="fas fa-quote-left opening-quote"></i>
+					<div class="quote-text" id="quote-text">
+						The only way to do great work is to love what you do.
+					</div>
+					<i class="fas fa-quote-right closing-quote"></i>
+				</div>
+				<div class="quote-author" id="quote-author">
+					— Steve Jobs
+				</div>
+				<div class="quote-category" id="quote-category">
+					<span class="category-tag">Motivation</span>
+				</div>
+			</div>
+
+			<!-- Controls -->
+			<div class="controls-section">
+				<button id="new-quote-btn" class="control-btn primary-btn">
+					<i class="fas fa-random"></i> New Quote
+				</button>
+
+				<div class="action-buttons">
+					<button id="copy-btn" class="action-btn" title="Copy Quote">
+						<i class="fas fa-copy"></i>
+					</button>
+					<button id="share-btn" class="action-btn" title="Share Quote">
+						<i class="fas fa-share-alt"></i>
+					</button>
+					<button id="speak-btn" class="action-btn" title="Read Aloud">
+						<i class="fas fa-volume-up"></i>
+					</button>
+					<button id="favorite-btn" class="action-btn" title="Add to Favorites">
+						<i class="far fa-heart"></i>
+					</button>
+				</div>
+			</div>
+
+			<!-- Category Filters -->
+			<div class="categories-section">
+				<h3>Filter by Category</h3>
+				<div class="categories-grid" id="categories-grid">
+					<button class="category-btn active" data-category="all">All</button>
+					<button class="category-btn" data-category="motivational">Motivational</button>
+					<button class="category-btn" data-category="success">Success</button>
+					<button class="category-btn" data-category="life">Life</button>
+					<button class="category-btn" data-category="love">Love</button>
+					<button class="category-btn" data-category="wisdom">Wisdom</button>
+					<button class="category-btn" data-category="funny">Funny</button>
+					<button class="category-btn" data-category="friendship">Friendship</button>
+				</div>
+			</div>
+
+			<!-- Favorites Section -->
+			<div class="favorites-section">
+				<div class="section-header">
+					<h3><i class="fas fa-heart"></i> Favorite Quotes</h3>
+					<button id="clear-favorites" class="clear-btn">
+						<i class="fas fa-trash"></i> Clear All
+					</button>
+				</div>
+				<div class="favorites-grid" id="favorites-grid">
+					<!-- Favorites will be dynamically added here -->
+				</div>
+			</div>
+
+			<!-- Quote of the Day -->
+			<div class="qotd-section">
+				<div class="qotd-card">
+					<div class="qotd-badge">
+						<i class="fas fa-star"></i> Quote of the Day
+					</div>
+					<div class="qotd-content">
+						<div class="qotd-text" id="qotd-text"></div>
+						<div class="qotd-author" id="qotd-author"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Loading Animation -->
+		<div id="loading" class="loading-state">
+			<div class="spinner"></div>
+			<p>Loading inspirational quote...</p>
+		</div>
+
+		<!-- Toast Notification -->
+		<div id="toast" class="toast">
+			<span id="toast-message"></span>
+		</div>
+
+		<!-- Share Modal -->
+		<div id="share-modal" class="modal">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h3>Share This Quote</h3>
+					<button class="close-modal">&times;</button>
+				</div>
+				<div class="modal-body">
+					<div class="share-options">
+						<button class="share-option" data-platform="twitter">
+							<i class="fab fa-twitter"></i> Twitter
+						</button>
+						<button class="share-option" data-platform="facebook">
+							<i class="fab fa-facebook"></i> Facebook
+						</button>
+						<button class="share-option" data-platform="linkedin">
+							<i class="fab fa-linkedin"></i> LinkedIn
+						</button>
+						<button class="share-option" data-platform="whatsapp">
+							<i class="fab fa-whatsapp"></i> WhatsApp
+						</button>
+					</div>
+					<div class="share-text">
+						<textarea id="share-text" readonly></textarea>
+						<button id="copy-share-text" class="copy-text-btn">
+							<i class="fas fa-copy"></i> Copy
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="quote.js"></script>
+</body>
+
+</html>

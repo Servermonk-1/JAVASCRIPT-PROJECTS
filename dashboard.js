@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cards = document.querySelectorAll('.card');
     const dashboard = document.getElementById('dashboard');
-    
+
     // Load user email if available
     const userEmail = localStorage.getItem('userEmail');
     if (userEmail) {
@@ -49,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
             'quiz': 'QUIZ-APP/index.html',
             'stopwatch': 'STOPWATCH/index.html',
             'quote': 'RANDOM-QUOTES/index.html',
-            'weather': 'https://github.com/Servermonk-1/SIMPLE-WEATHER-API',
-			'currency': 'https://github.com/Servermonk-1/CRYPTO-TRACKER',
-			'tracker': 'CRYPTO-TRACKER/index.html'
+            'weather': 'https://servermonk-1.github.io/SIMPLE-WEATHER-API/',
+            'currency': 'CURRENCY-CONVERTER/currency.html',
+            'tracker': ' https://servermonk-1.github.io/CRYPTO-TRACKER/'
         };
 
         if (externalTools[tool]) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const originalText = card.textContent;
             card.textContent = 'Loading...';
             card.style.opacity = '0.7';
-            
+
             setTimeout(() => {
                 window.location.href = externalTools[tool];
             }, 500);
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('mouseenter', () => {
             card.style.transform = 'translateY(-8px) scale(1.05)';
         });
-        
+
         card.addEventListener('mouseleave', () => {
             card.style.transform = 'translateY(0) scale(1)';
         });

@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', () => {
             'calculator': 'CALCULATOR/calc.html',
             'todo': 'TODO_LIST/index.html',
             'agecalc': 'AGE_CALC/index.html',
-            'quiz': 'QUIZ APP/index.html',
+            'quiz': 'QUIZ-APP/index.html',
             'stopwatch': 'STOPWATCH/index.html',
-            'quote': 'RANDOM QUOTES/index.html',
-            'weather': 'SIMPLE WEATHER CONDITION/index.html',
-			'currency': 'CURRENCY CONVERTER/currency.html',
-			'tracker': 'CRYPTO TRACKER/index.html'
+            'quote': 'RANDOM-QUOTES/index.html',
+            'weather': 'SIMPLE-WEATHER CONDITION/index.html',
+			'currency': 'CURRENCY-CONVERTER/currency.html',
+			'tracker': 'CRYPTO-TRACKER/index.html'
         };
 
         if (externalTools[tool]) {
